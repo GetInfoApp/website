@@ -2,6 +2,9 @@
 
 Landing site for Get Info: a location-based community help platform where people ask real-world questions and get matched with nearby helpers.
 
+## Live Site (GitHub Pages)
+`https://getinfoapp.github.io/website/`
+
 ## Repository
 - URL: `https://github.com/GetInfoApp/website`
 - Default branch: `master`
