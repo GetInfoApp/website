@@ -26,6 +26,7 @@ jobs:
       - run: npm run build
 
       - run: test -d dist && ls -la dist
+      - run: touch dist/.nojekyll
 
       - uses: peaceiris/actions-gh-pages@v4
         with:
