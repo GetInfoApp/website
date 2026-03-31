@@ -1,15 +1,13 @@
 import { Link } from "react-router-dom";
-import { MapPin } from "lucide-react";
+import Logo from "@/components/Logo";
 
 const Footer = () => (
   <footer className="bg-card border-t border-border py-12">
     <div className="container mx-auto px-4">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
         <div className="col-span-2 md:col-span-1">
-          <Link to="/" className="flex items-center gap-2 font-display text-lg font-bold text-foreground mb-3">
-            <div className="w-7 h-7 rounded-lg gradient-hero flex items-center justify-center">
-              <MapPin className="w-4 h-4 text-primary-foreground" />
-            </div>
+          <Link to="/" className="flex items-center gap-2 font-display text-lg font-bold text-foreground mb-3 hover:opacity-90 transition-opacity">
+            <Logo size={28} />
             Get Info
           </Link>
           <p className="text-sm text-muted-foreground">Community-powered answers from the people around you.</p>

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { MapPin, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Logo from "@/components/Logo";
 
 const navLinks = [
   // { to: "/", label: "Home" },
@@ -17,10 +18,8 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-border/50">
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
-        <Link to="/" className="flex items-center gap-2 font-display text-xl font-bold text-foreground">
-          <div className="w-8 h-8 rounded-lg gradient-hero flex items-center justify-center">
-            <MapPin className="w-5 h-5 text-primary-foreground" />
-          </div>
+        <Link to="/" className="flex items-center gap-2 font-display text-xl font-bold text-foreground hover:opacity-90 transition-opacity">
+          <Logo size={36} />
           Get Info
         </Link>
 
