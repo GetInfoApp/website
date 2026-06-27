@@ -246,12 +246,9 @@ const Index = () => (
       <div className="overflow-hidden mb-3">
         <div className="carousel-track-left">
           {[...row1Questions, ...row1Questions].map((q, i) => (
-            <div key={i} className="flex-shrink-0 glass-card rounded-xl px-4 py-3 flex items-start gap-3 max-w-xs">
-              <MapPin className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-              <div>
-                <p className="text-sm text-foreground leading-snug">{q.text}</p>
-                <span className="inline-block mt-1.5 text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full font-medium">{q.tag}</span>
-              </div>
+            <div key={i} className="flex-shrink-0 glass-card rounded-xl px-4 py-3 flex items-center gap-3">
+              <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
+              <p className="text-sm text-foreground leading-snug whitespace-nowrap">{q}</p>
             </div>
           ))}
         </div>
@@ -260,12 +257,9 @@ const Index = () => (
       <div className="overflow-hidden">
         <div className="carousel-track-right">
           {[...row2Questions, ...row2Questions].map((q, i) => (
-            <div key={i} className="flex-shrink-0 glass-card rounded-xl px-4 py-3 flex items-start gap-3 max-w-xs">
-              <MapPin className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
-              <div>
-                <p className="text-sm text-foreground leading-snug">{q.text}</p>
-                <span className="inline-block mt-1.5 text-xs bg-accent/10 text-accent px-2 py-0.5 rounded-full font-medium">{q.tag}</span>
-              </div>
+            <div key={i} className="flex-shrink-0 glass-card rounded-xl px-4 py-3 flex items-center gap-3">
+              <MapPin className="w-4 h-4 text-accent flex-shrink-0" />
+              <p className="text-sm text-foreground leading-snug whitespace-nowrap">{q}</p>
             </div>
           ))}
         </div>
