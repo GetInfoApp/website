@@ -2,7 +2,23 @@ import { useState } from "react";
 import Layout from "@/components/Layout";
 import { row1QA, row2QA } from "@/data/carouselQuestions";
 import { Button } from "@/components/ui/button";
-import { MapPin, Star, Shield, IndianRupee, MessageCircle, Users, CheckCircle } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import {
+  MapPin,
+  Star,
+  Shield,
+  IndianRupee,
+  MessageCircle,
+  Users,
+  CheckCircle,
+  HelpCircle,
+  Lock,
+} from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const steps = [
@@ -43,6 +59,37 @@ const features = [
     icon: IndianRupee,
     title: "Earn by answering",
     desc: "Experts earn ₹50+ per accepted answer. No subscription, no lock-in.",
+  },
+];
+
+const faqs = [
+  {
+    q: "Is Get Info free to use?",
+    a: "Browsing and asking is free. You only pay when you accept an answer that helped you — minimum ₹50, paid directly to the person who answered.",
+  },
+  {
+    q: "How do people earn by answering?",
+    a: "When your answer is accepted by the asker, you earn ₹50 or more, sent directly to your UPI. No subscription, no joining fee.",
+  },
+  {
+    q: "Which cities is Get Info available in?",
+    a: "We're launching first in India's tier-2 and tier-3 cities. Join the waitlist and we'll notify you when we go live in your area.",
+  },
+  {
+    q: "What kind of questions can I ask?",
+    a: "Anything tied to a place — is a shop open, how long is the queue, is something available nearby, can someone help right now. You pin a location, set a radius, and ask.",
+  },
+  {
+    q: "Is my location private?",
+    a: "You choose the location you pin for each question — it doesn't have to be where you are. Precise location isn't stored beyond the active question.",
+  },
+  {
+    q: "What languages are supported?",
+    a: "Ask and answer in Hindi, Hinglish, or English — whatever feels natural.",
+  },
+  {
+    q: "How does Get Info keep things safe?",
+    a: "Every question passes through AI moderation that blocks hate speech, threats, and harmful content before it reaches anyone. Every account is verified.",
   },
 ];
 
@@ -93,11 +140,17 @@ const WaitlistForm = ({
   );
 };
 
+const SectionEyebrow = ({ label }: { label: string }) => (
+  <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-3">
+    {label}
+  </p>
+);
+
 const Index = () => (
   <Layout>
-    {/* Hero */}
+    {/* ── Hero ──────────────────────────────────────────────────────────── */}
     <section className="relative overflow-hidden">
-      {/* Decorative background — replaces hero-bg.png */}
+      {/* Decorative background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Grid dot pattern */}
         <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -161,7 +214,7 @@ const Index = () => (
               <MapPin className="w-4 h-4" />
               Real people. Real answers. Near you.
             </div>
-            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight mb-6">
               Ask anything.{" "}
               <span className="text-gradient">Get answered.</span>
             </h1>
@@ -177,13 +230,18 @@ const Index = () => (
             </div>
           </div>
 
-          {/* Phone mockup — desktop only */}
-          <div className="hidden md:flex flex-shrink-0 w-52 lg:w-60 items-center justify-center">
+          {/* Phone mockup — desktop only, with glow halo */}
+          <div className="hidden md:flex flex-shrink-0 w-52 lg:w-60 items-center justify-center relative">
+            {/* Soft glow behind phone */}
+            <div
+              className="absolute inset-0 rounded-full blur-3xl opacity-30 scale-125"
+              style={{ background: "var(--gradient-hero)" }}
+            />
             <svg
               viewBox="0 0 200 380"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="w-full drop-shadow-2xl"
+              className="relative z-10 w-full drop-shadow-2xl"
             >
               <defs>
                 <linearGradient id="phone-gi-grad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -235,8 +293,8 @@ const Index = () => (
       </div>
     </section>
 
-    {/* Questions carousel */}
-    <section className="py-14 overflow-hidden border-y border-border/50 bg-muted/30">
+    {/* ── Questions carousel ────────────────────────────────────────────── */}
+    <section className="py-14 overflow-hidden border-y border-border/40 bg-muted/30">
       <div className="mb-3 text-center">
         <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
           Real questions people are asking
@@ -282,21 +340,27 @@ const Index = () => (
       </div>
     </section>
 
-    {/* How it works */}
-    <section className="py-20 md:py-28 bg-muted/50">
+    {/* ── How it works ─────────────────────────────────────────────────── */}
+    <section className="py-20 md:py-28 bg-muted/30">
       <div className="container mx-auto px-4">
-        <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-4">
-          How It Works
-        </h2>
-        <p className="text-center text-muted-foreground mb-14 max-w-xl mx-auto">
-          Three simple steps from question to answer.
-        </p>
+        <div className="text-center mb-14">
+          <SectionEyebrow label="HOW IT WORKS" />
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-center mb-4">
+            How It Works
+          </h2>
+          <p className="text-center text-muted-foreground max-w-xl mx-auto">
+            Three simple steps from question to answer.
+          </p>
+        </div>
         <div className="relative max-w-4xl mx-auto">
-          {/* Horizontal connector line between step icons */}
-          <div className="hidden md:block absolute top-8 left-[16%] right-[16%] h-0 border-t-2 border-dashed border-primary/20 z-0" />
+          {/* Horizontal connector line */}
+          <div className="hidden md:block absolute top-[2.75rem] left-[22%] right-[22%] h-0 border-t-2 border-dashed border-primary/20 z-0" />
           <div className="grid md:grid-cols-3 gap-8">
             {steps.map((s, i) => (
-              <div key={i} className={`text-center animate-slide-up-delay-${i + 1} relative z-10`}>
+              <div
+                key={i}
+                className={`glass-card rounded-2xl p-6 text-center ring-1 ring-border/40 hover:shadow-elevated hover:-translate-y-0.5 transition-all duration-300 animate-slide-up-delay-${i + 1} relative z-10`}
+              >
                 <div className="w-16 h-16 rounded-2xl gradient-hero flex items-center justify-center mx-auto mb-5">
                   <s.icon className="w-8 h-8 text-primary-foreground" />
                 </div>
@@ -312,20 +376,29 @@ const Index = () => (
       </div>
     </section>
 
-    {/* Features */}
-    <section className="py-20 md:py-28">
+    {/* ── Features ─────────────────────────────────────────────────────── */}
+    <section
+      className="py-20 md:py-28 border-t border-border/40"
+      style={{
+        background:
+          "radial-gradient(ellipse 80% 50% at 50% 0%, hsl(168 65% 32% / 0.04) 0%, transparent 65%)",
+      }}
+    >
       <div className="container mx-auto px-4">
-        <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-4">
-          Built for real India
-        </h2>
-        <p className="text-center text-muted-foreground mb-14 max-w-xl mx-auto">
-          Designed around how people actually ask and answer questions.
-        </p>
+        <div className="text-center mb-14">
+          <SectionEyebrow label="FEATURES" />
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-center mb-4">
+            Built for real India
+          </h2>
+          <p className="text-center text-muted-foreground max-w-xl mx-auto">
+            Designed around how people actually ask and answer questions.
+          </p>
+        </div>
         <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {features.map((f, i) => (
             <div
               key={i}
-              className="glass-card rounded-xl p-6 hover:shadow-elevated transition-all duration-300 group relative border border-primary/10"
+              className="glass-card rounded-xl p-6 hover:shadow-elevated hover:-translate-y-0.5 transition-all duration-300 group relative ring-1 ring-border/30"
             >
               {/* Pulsing live-moderation dot on AI safety card */}
               {f.title === "AI-powered safety" && (
@@ -334,8 +407,8 @@ const Index = () => (
                   <span className="relative inline-flex rounded-full w-2.5 h-2.5 bg-green-500" />
                 </span>
               )}
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                <f.icon className="w-6 h-6 text-primary" />
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-300">
+                <f.icon className="w-6 h-6 text-primary group-hover:scale-110 transition-transform duration-300" />
               </div>
               <h3 className="font-display font-bold text-lg mb-2">{f.title}</h3>
               <p className="text-sm text-muted-foreground">{f.desc}</p>
@@ -345,15 +418,12 @@ const Index = () => (
       </div>
     </section>
 
-    {/* Experts earn here */}
-    <section className="py-20 md:py-28 bg-muted/50">
+    {/* ── Experts earn here ────────────────────────────────────────────── */}
+    <section className="py-20 md:py-28 bg-muted/30 border-t border-border/40">
       <div className="container mx-auto px-4 text-center">
         <div className="max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-medium mb-6">
-            <IndianRupee className="w-4 h-4" />
-            For experts and local pros
-          </div>
-          <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
+          <SectionEyebrow label="FOR EXPERTS" />
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">
             Answer questions. Get paid.
           </h2>
           <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
@@ -378,8 +448,8 @@ const Index = () => (
       </div>
     </section>
 
-    {/* Origin story */}
-    <section className="py-20 md:py-28 relative overflow-hidden">
+    {/* ── Origin story ─────────────────────────────────────────────────── */}
+    <section className="py-20 md:py-28 relative overflow-hidden border-t border-border/40">
       {/* India map outline watermark */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <svg
@@ -408,54 +478,122 @@ const Index = () => (
         </svg>
       </div>
       <div className="relative container mx-auto px-4">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-            Starting in India's tier-2 cities
-          </h2>
-          <p className="text-muted-foreground leading-relaxed text-lg">
-            We're building Get Info from the ground up in India — connecting
-            people who have questions with people nearby who have answers. Any
-            question, any topic, real people. Join the founding community
-            shaping how it works.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    {/* Trust & Safety */}
-    <section className="py-16 md:py-20 bg-muted/50">
-      <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto">
-          <div className="flex items-center gap-3 mb-6">
-            <Shield className="w-6 h-6 text-primary flex-shrink-0" />
-            <h2 className="font-display text-2xl md:text-3xl font-bold">
-              Trust & Safety
+          <div className="text-center mb-8">
+            <SectionEyebrow label="OUR STORY" />
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">
+              Starting in India's tier-2 cities
             </h2>
           </div>
-          <ul className="space-y-4 text-muted-foreground">
-            <li className="flex items-start gap-3">
-              <CheckCircle className="mt-0.5 w-5 h-5 text-primary flex-shrink-0" />
-              <span>
-                Auto-moderation flags hate speech, threats, and drug-related
-                content before posting — compliant with IT Act Section 79.
-              </span>
-            </li>
-            <li className="flex items-start gap-3">
-              <CheckCircle className="mt-0.5 w-5 h-5 text-primary flex-shrink-0" />
-              <span>
-                Every answer is tied to a verified account. No anonymous abuse.
-              </span>
-            </li>
-          </ul>
+          <div className="glass-card rounded-2xl p-8 md:p-10 ring-1 ring-border/40">
+            <p className="text-muted-foreground leading-relaxed text-lg text-center">
+              We're building Get Info from the ground up in India — connecting
+              people who have questions with people nearby who have answers. Any
+              question, any topic, real people. Join the founding community
+              shaping how it works.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-6 mt-8 pt-8 border-t border-border/40">
+              <div className="text-center">
+                <div className="font-display text-2xl font-bold text-gradient">Tier-2 first</div>
+                <div className="text-xs text-muted-foreground mt-1">Launch cities</div>
+              </div>
+              <div className="w-px h-8 bg-border/50" />
+              <div className="text-center">
+                <div className="font-display text-2xl font-bold text-gradient">3 languages</div>
+                <div className="text-xs text-muted-foreground mt-1">Hindi · Hinglish · English</div>
+              </div>
+              <div className="w-px h-8 bg-border/50" />
+              <div className="text-center">
+                <div className="font-display text-2xl font-bold text-gradient">₹50+</div>
+                <div className="text-xs text-muted-foreground mt-1">Per accepted answer</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    {/* Final CTA */}
-    <section className="py-20 md:py-28">
+    {/* ── Trust & Safety ───────────────────────────────────────────────── */}
+    <section className="py-20 md:py-28 bg-muted/30 border-t border-border/40">
+      <div className="container mx-auto px-4">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-10">
+            <SectionEyebrow label="TRUST &amp; SAFETY" />
+            <div className="flex items-center justify-center gap-3 mb-3">
+              <Shield className="w-6 h-6 text-primary" />
+              <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight">
+                Safe by design
+              </h2>
+            </div>
+            <p className="text-muted-foreground max-w-md mx-auto">
+              Every interaction is protected at the infrastructure level.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-5">
+            <div className="glass-card rounded-xl p-6 ring-1 ring-border/40 hover:shadow-elevated hover:-translate-y-0.5 transition-all duration-300">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                <CheckCircle className="w-5 h-5 text-primary" />
+              </div>
+              <h3 className="font-display font-bold text-base mb-2">AI content moderation</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Auto-moderation flags hate speech, threats, and drug-related
+                content before posting — compliant with IT Act Section 79.
+              </p>
+            </div>
+            <div className="glass-card rounded-xl p-6 ring-1 ring-border/40 hover:shadow-elevated hover:-translate-y-0.5 transition-all duration-300">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                <Lock className="w-5 h-5 text-primary" />
+              </div>
+              <h3 className="font-display font-bold text-base mb-2">Verified accounts only</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Every answer is tied to a verified account. No anonymous abuse.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ── FAQ ──────────────────────────────────────────────────────────── */}
+    <section className="py-20 md:py-28 border-t border-border/40">
+      <div className="container mx-auto px-4">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-12">
+            <SectionEyebrow label="FAQ" />
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight">
+              Frequently asked questions
+            </h2>
+          </div>
+          <div className="glass-card rounded-2xl overflow-hidden ring-1 ring-border/40">
+            <Accordion type="single" collapsible className="divide-y divide-border/50">
+              {faqs.map((faq, i) => (
+                <AccordionItem
+                  key={i}
+                  value={`faq-${i}`}
+                  className="border-0 px-6 last:border-b-0"
+                >
+                  <AccordionTrigger className="py-5 text-left font-display font-semibold text-base hover:no-underline [&>svg]:text-primary hover:text-primary transition-colors duration-200">
+                    <div className="flex items-center gap-3 pr-4">
+                      <HelpCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span>{faq.q}</span>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-5 pl-7">
+                    <p className="text-muted-foreground leading-relaxed">{faq.a}</p>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ── Final CTA ────────────────────────────────────────────────────── */}
+    <section className="py-20 md:py-28 border-t border-border/40">
       <div className="container mx-auto px-4">
         <div className="gradient-hero rounded-3xl p-10 md:p-16 text-center max-w-4xl mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-primary-foreground mb-4">
             Shape the future of local knowledge
           </h2>
           <p className="text-primary-foreground/80 mb-8 max-w-lg mx-auto">

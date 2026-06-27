@@ -43,7 +43,7 @@
     />
     <meta name="twitter:image" content="https://getinfosearch.xyz/og-image.png" />
 
-    <!-- Structured data -->
+    <!-- Structured data — Organization + WebSite graph -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -67,6 +67,72 @@
             "name": "Get Info",
             "publisher": { "@id": "https://getinfosearch.xyz/#organization" },
             "inLanguage": ["en", "hi"]
+          }
+        ]
+      }
+    </script>
+
+    <!-- Structured data — FAQPage (separate tag, Google requirement) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is Get Info free to use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Browsing and asking is free. You only pay when you accept an answer that helped you — minimum ₹50, paid directly to the person who answered."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do people earn by answering?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "When your answer is accepted by the asker, you earn ₹50 or more, sent directly to your UPI. No subscription, no joining fee."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which cities is Get Info available in?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We're launching first in India's tier-2 and tier-3 cities. Join the waitlist and we'll notify you when we go live in your area."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What kind of questions can I ask?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Anything tied to a place — is a shop open, how long is the queue, is something available nearby, can someone help right now. You pin a location, set a radius, and ask."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my location private?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You choose the location you pin for each question — it doesn't have to be where you are. Precise location isn't stored beyond the active question."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What languages are supported?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ask and answer in Hindi, Hinglish, or English — whatever feels natural."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does Get Info keep things safe?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Every question passes through AI moderation that blocks hate speech, threats, and harmful content before it reaches anyone. Every account is verified."
+            }
           }
         ]
       }
