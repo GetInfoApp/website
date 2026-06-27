@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Layout from "@/components/Layout";
-import { row1Questions, row2Questions } from "@/data/carouselQuestions";
+import { row1QA, row2QA } from "@/data/carouselQuestions";
 import { Button } from "@/components/ui/button";
 import { MapPin, Star, Shield, IndianRupee, MessageCircle, Users, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
@@ -245,10 +245,18 @@ const Index = () => (
       {/* Row 1 — scrolls left */}
       <div className="overflow-hidden mb-3">
         <div className="carousel-track-left">
-          {[...row1Questions, ...row1Questions].map((q, i) => (
-            <div key={i} className="flex-shrink-0 glass-card rounded-xl px-4 py-3 flex items-center gap-3">
-              <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
-              <p className="text-sm text-foreground leading-snug whitespace-nowrap">{q}</p>
+          {[...row1QA, ...row1QA].map((qa, i) => (
+            <div key={i} className="flex-shrink-0 glass-card rounded-xl p-4 w-72 space-y-3">
+              <div className="flex items-start gap-2">
+                <MapPin className="w-3.5 h-3.5 text-primary mt-0.5 flex-shrink-0" />
+                <p className="text-sm text-foreground leading-snug">{qa.question}</p>
+              </div>
+              <div className="flex items-start gap-2 pl-1">
+                <div className="w-5 h-5 rounded-full gradient-hero flex-shrink-0 flex items-center justify-center mt-0.5">
+                  <Users className="w-3 h-3 text-primary-foreground" />
+                </div>
+                <p className="text-sm text-muted-foreground leading-snug italic">{qa.answer}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -256,10 +264,18 @@ const Index = () => (
       {/* Row 2 — scrolls right */}
       <div className="overflow-hidden">
         <div className="carousel-track-right">
-          {[...row2Questions, ...row2Questions].map((q, i) => (
-            <div key={i} className="flex-shrink-0 glass-card rounded-xl px-4 py-3 flex items-center gap-3">
-              <MapPin className="w-4 h-4 text-accent flex-shrink-0" />
-              <p className="text-sm text-foreground leading-snug whitespace-nowrap">{q}</p>
+          {[...row2QA, ...row2QA].map((qa, i) => (
+            <div key={i} className="flex-shrink-0 glass-card rounded-xl p-4 w-72 space-y-3">
+              <div className="flex items-start gap-2">
+                <MapPin className="w-3.5 h-3.5 text-accent mt-0.5 flex-shrink-0" />
+                <p className="text-sm text-foreground leading-snug">{qa.question}</p>
+              </div>
+              <div className="flex items-start gap-2 pl-1">
+                <div className="w-5 h-5 rounded-full gradient-hero flex-shrink-0 flex items-center justify-center mt-0.5">
+                  <Users className="w-3 h-3 text-primary-foreground" />
+                </div>
+                <p className="text-sm text-muted-foreground leading-snug italic">{qa.answer}</p>
+              </div>
             </div>
           ))}
         </div>
