@@ -196,4 +196,33 @@
     0%, 100% { opacity: 1; }
     50% { opacity: 0.7; }
   }
+
+  .carousel-track-left {
+    display: flex;
+    gap: 1rem;
+    animation: scrollLeft 40s linear infinite;
+    width: max-content;
+  }
+
+  .carousel-track-right {
+    display: flex;
+    gap: 1rem;
+    animation: scrollRight 40s linear infinite;
+    width: max-content;
+  }
+
+  @keyframes scrollLeft {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes scrollRight {
+    0%   { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+
+  .carousel-track-left:hover,
+  .carousel-track-right:hover {
+    animation-play-state: paused;
+  }
 }

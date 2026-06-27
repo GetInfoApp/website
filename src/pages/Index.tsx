@@ -161,8 +161,8 @@ const Index = () => (
               Hyperlocal knowledge platform
             </div>
             <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-              Local knowledge that{" "}
-              <span className="text-gradient">Google can't find</span>
+              Your neighbourhood knows.{" "}
+              <span className="text-gradient">Ask it.</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto md:mx-0">
               Ask your neighbourhood. Get answers from people who are actually
@@ -230,6 +230,61 @@ const Index = () => (
               <rect x="75" y="366" width="50" height="4" rx="2" fill="#e2e8f0" />
             </svg>
           </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Questions carousel */}
+    <section className="py-14 overflow-hidden border-y border-border/50 bg-muted/30">
+      <div className="mb-3 text-center">
+        <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+          Real questions people are asking
+        </span>
+      </div>
+      {/* Row 1 — scrolls left */}
+      <div className="overflow-hidden mb-3">
+        <div className="carousel-track-left">
+          {[
+            { text: "Fan chal nahi raha — electrician chahiye abhi", tag: "Electrical" },
+            { text: "Geyser leak kar raha hai, plumber kab aa sakta hai?", tag: "Plumbing" },
+            { text: "Split AC install karna hai, koi help kar sakta hai?", tag: "AC / HVAC" },
+            { text: "Which auto near Laxmi Nagar goes to Noida after 10 PM?", tag: "Local Info" },
+            { text: "Kitchen window repair — carpenter chahiye aaj", tag: "Carpentry" },
+            { text: "Tiffin service chahiye lunch ke liye ₹100 mein", tag: "Food" },
+            { text: "Pipe crack hai bathroom mein, urgent plumber chahiye", tag: "Plumbing" },
+            { text: "Koi doctor nearby hai jo evening mein milte hain?", tag: "Health" },
+          ].flatMap((q, i) => [q, { ...q, key: `r1b-${i}` }]).map((q, i) => (
+            <div key={i} className="flex-shrink-0 glass-card rounded-xl px-4 py-3 flex items-start gap-3 max-w-xs">
+              <MapPin className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+              <div>
+                <p className="text-sm text-foreground leading-snug">{q.text}</p>
+                <span className="inline-block mt-1.5 text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full font-medium">{q.tag}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* Row 2 — scrolls right */}
+      <div className="overflow-hidden">
+        <div className="carousel-track-right">
+          {[
+            { text: "Door sahi se band nahi ho rahi — carpenter chahiye", tag: "Carpentry" },
+            { text: "Bijli ka meter reading kaise check karein?", tag: "Electrical" },
+            { text: "AC gas refill kahan hoti hai sector 12 ke paas?", tag: "AC / HVAC" },
+            { text: "Sabzi mandi Sunday ko khuli rehti hai kya?", tag: "Local Info" },
+            { text: "Bathroom sink overflow ho rahi hai, koi fix kar sakta?", tag: "Plumbing" },
+            { text: "Custom furniture banana hai — reliable carpenter kahan?", tag: "Carpentry" },
+            { text: "Heater on karte hi band ho jaata hai — kya problem?", tag: "AC / HVAC" },
+            { text: "Doodh wala jo Paytm leta ho colony mein kaun hai?", tag: "Local Info" },
+          ].flatMap((q, i) => [q, { ...q, key: `r2b-${i}` }]).map((q, i) => (
+            <div key={i} className="flex-shrink-0 glass-card rounded-xl px-4 py-3 flex items-start gap-3 max-w-xs">
+              <MapPin className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
+              <div>
+                <p className="text-sm text-foreground leading-snug">{q.text}</p>
+                <span className="inline-block mt-1.5 text-xs bg-accent/10 text-accent px-2 py-0.5 rounded-full font-medium">{q.tag}</span>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -365,9 +420,9 @@ const Index = () => (
             Starting in India's tier-2 cities
           </h2>
           <p className="text-muted-foreground leading-relaxed text-lg">
-            We're building Get Info from the ground up — places where the answer
-            to "best mechanic near Laxmi Nagar" doesn't exist on Google. Join
-            the founding community shaping how it works.
+            We're building Get Info from the ground up — for questions like
+            "which auto near here goes to Hazratganj after 10 PM?" that no app
+            can answer. Join the founding community shaping how it works.
           </p>
         </div>
       </div>
