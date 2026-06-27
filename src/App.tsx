@@ -15,6 +15,8 @@ import Subscription from "./pages/Subscription";
 import RateAnswer from "./pages/RateAnswer";
 import MatchSummary from "./pages/MatchSummary";
 import Terms from "./pages/Terms";
+import Experts from "./pages/Experts";
+import Privacy from "./pages/Privacy";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,19 +30,20 @@ const App = () => (
       <BrowserRouter basename={routerBase}>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/safety" element={<Safety />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/experts" element={<Experts />} />
+          <Route path="/privacy" element={<Privacy />} />
           <Route path="*" element={<Navigate to="/" replace />} />
           {/* <Route path="/login" element={<Login />} />
           <Route path="/feed" element={<Feed />} />
           <Route path="/ask" element={<AskQuestion />} />
           <Route path="/api" element={<ApiDocs />} />
-          <Route path="/safety" element={<Safety />} />
           <Route path="/chat" element={<Chat />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/subscription" element={<Subscription />} />
           <Route path="/rate" element={<RateAnswer />} />
-          <Route path="/matches" element={<MatchSummary />} />
-          <Route path="/terms" element={<Terms />} />
-          <Route path="*" element={<NotFound />} /> */}
+          <Route path="/matches" element={<MatchSummary />} /> */}
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

@@ -26,8 +26,8 @@ const Terms = () => (
           <p>Location data is used solely for matching purposes and is not stored beyond the active session unless explicitly saved by the user. See our Privacy Policy for full details.</p>
         </section>
         <section>
-          <h2 className="font-display text-xl font-bold text-foreground">6. Premium Services</h2>
-          <p>Premium subscriptions provide additional features and are billed monthly. Cancellation takes effect at the end of the current billing period.</p>
+          <h2 className="font-display text-xl font-bold text-foreground">6. Payments</h2>
+          <p>Get Info uses a per-answer payment model. Askers pay only when they accept an answer. Experts receive payment directly to their UPI-linked account. Minimum transaction value is ₹50. All payments are processed in Indian Rupees (INR).</p>
         </section>
         <section>
           <h2 className="font-display text-xl font-bold text-foreground">7. Contact</h2>

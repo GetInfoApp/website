@@ -5,10 +5,8 @@ import { Button } from "@/components/ui/button";
 import Logo from "@/components/Logo";
 
 const navLinks = [
-  // { to: "/", label: "Home" },
-  // { to: "/feed", label: "Feed" },
-  // { to: "/api", label: "API" },
-  // { to: "/safety", label: "Trust & Safety" },
+  { to: "/safety", label: "Safety" },
+  { to: "/terms", label: "Terms" },
 ];
 
 const Navbar = () => {
@@ -72,14 +70,7 @@ const Navbar = () => {
               {l.label}
             </Link>
           ))}
-          <div className="flex gap-2 pt-2">
-            <Link to="/login" className="flex-1" onClick={() => setOpen(false)}>
-              <Button variant="outline" size="sm" className="w-full">Log In</Button>
-            </Link>
-            <Link to="/ask" className="flex-1" onClick={() => setOpen(false)}>
-              <Button size="sm" className="w-full gradient-hero text-primary-foreground border-0">Ask</Button>
-            </Link>
-          </div>
+          {/* login/ask buttons removed — routes not yet live */}
         </div>
       )}
     </nav>
