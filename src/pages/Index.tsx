@@ -165,8 +165,8 @@ const Index = () => (
               <span className="text-gradient">Get answered.</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto md:mx-0">
-              Post any question. Get matched with knowledgeable people near you
-              who can actually help — in Hindi, Hinglish, or English.
+              Ask anything. Get matched with people nearby who actually know —
+              right now, in Hindi, Hinglish, or English.
             </p>
             <div
               id="waitlist"
@@ -245,14 +245,14 @@ const Index = () => (
       <div className="overflow-hidden mb-3">
         <div className="carousel-track-left">
           {[
-            { text: "Fan chal nahi raha — electrician chahiye abhi", tag: "Electrical" },
-            { text: "Geyser leak kar raha hai, plumber kab aa sakta hai?", tag: "Plumbing" },
-            { text: "Split AC install karna hai, koi help kar sakta hai?", tag: "AC / HVAC" },
-            { text: "Which auto near Laxmi Nagar goes to Noida after 10 PM?", tag: "Local Info" },
-            { text: "Kitchen window repair — carpenter chahiye aaj", tag: "Carpentry" },
-            { text: "Tiffin service chahiye lunch ke liye ₹100 mein", tag: "Food" },
-            { text: "Pipe crack hai bathroom mein, urgent plumber chahiye", tag: "Plumbing" },
-            { text: "Koi doctor nearby hai jo evening mein milte hain?", tag: "Health" },
+            { text: "Is Sadar Bazar open today?", tag: "Markets" },
+            { text: "Shatut / mulberry kahan mil rahi hai abhi?", tag: "Seasonal" },
+            { text: "Koi 10 Amul candy bar ghar deliver kar sakta hai?", tag: "Delivery" },
+            { text: "CNG available hai kya nearest pump pe?", tag: "Fuel" },
+            { text: "Sunday bazaar aaj chal raha hai?", tag: "Markets" },
+            { text: "Nearest ATM mein cash hai kya?", tag: "Finance" },
+            { text: "Chole bhature wala open hai kya abhi?", tag: "Food" },
+            { text: "Ice cream delivery hogi kya — 2 km ke andar?", tag: "Delivery" },
           ].flatMap((q, i) => [q, { ...q, key: `r1b-${i}` }]).map((q, i) => (
             <div key={i} className="flex-shrink-0 glass-card rounded-xl px-4 py-3 flex items-start gap-3 max-w-xs">
               <MapPin className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
@@ -268,14 +268,14 @@ const Index = () => (
       <div className="overflow-hidden">
         <div className="carousel-track-right">
           {[
-            { text: "Door sahi se band nahi ho rahi — carpenter chahiye", tag: "Carpentry" },
-            { text: "Bijli ka meter reading kaise check karein?", tag: "Electrical" },
-            { text: "AC gas refill kahan hoti hai sector 12 ke paas?", tag: "AC / HVAC" },
-            { text: "Sabzi mandi Sunday ko khuli rehti hai kya?", tag: "Local Info" },
-            { text: "Bathroom sink overflow ho rahi hai, koi fix kar sakta?", tag: "Plumbing" },
-            { text: "Custom furniture banana hai — reliable carpenter kahan?", tag: "Carpentry" },
-            { text: "Heater on karte hi band ho jaata hai — kya problem?", tag: "AC / HVAC" },
-            { text: "Doodh wala jo Paytm leta ho colony mein kaun hai?", tag: "Local Info" },
+            { text: "Subzi mandi mein aaj gobhi ka rate kya hai?", tag: "Markets" },
+            { text: "Petrol pump pe queue hai kya abhi?", tag: "Fuel" },
+            { text: "Koi grocery deliver karega — 2 kg daal chahiye", tag: "Delivery" },
+            { text: "Medical store khuli hai kya raat ko paas mein?", tag: "Health" },
+            { text: "Phool wala open hai mandir ke paas?", tag: "Markets" },
+            { text: "Is the main market closed for the holiday?", tag: "Markets" },
+            { text: "Auto stand khali hai kya abhi?", tag: "Transport" },
+            { text: "Doodh wala aaya kya aaj colony mein?", tag: "Delivery" },
           ].flatMap((q, i) => [q, { ...q, key: `r2b-${i}` }]).map((q, i) => (
             <div key={i} className="flex-shrink-0 glass-card rounded-xl px-4 py-3 flex items-start gap-3 max-w-xs">
               <MapPin className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
