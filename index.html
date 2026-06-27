@@ -4,24 +4,77 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="%BASE_URL%favicon.ico" />
-    <title>Get Info - Community Answers from People Nearby</title>
-    <meta name="description" content="Ask real-world questions and get matched with nearby community members who can help. Powered by AI safety and smart matching." />
+    <link rel="canonical" href="https://getinfosearch.xyz/" />
+    <meta name="theme-color" content="#1C8771" />
+
+    <title>Get Info — Ask Anything, Get Answered by People Nearby</title>
+    <meta
+      name="description"
+      content="Pin a location, ask any question, and get a real answer from someone there right now. Hyperlocal answers across India — in Hindi, Hinglish, or English."
+    />
     <meta name="author" content="Get Info" />
+    <meta
+      name="keywords"
+      content="hyperlocal questions, ask nearby, local answers India, real-time local help, Hinglish Q&A, neighbourhood questions, location based answers"
+    />
 
-    <meta property="og:title" content="Get Info - Community Answers from People Nearby" />
-    <meta property="og:description" content="Ask real-world questions and get matched with nearby community members who can help." />
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Get Info" />
+    <meta property="og:title" content="Get Info — Ask Anything, Get Answered by People Nearby" />
+    <meta
+      property="og:description"
+      content="Pin a location, ask any question, and get a real answer from someone there right now. Hyperlocal answers across India."
+    />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://getinfoapp.github.io/website/placeholder.svg" />
+    <meta property="og:url" content="https://getinfosearch.xyz/" />
+    <meta property="og:image" content="https://getinfosearch.xyz/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Get Info — ask anything, get answered by people nearby" />
+    <meta property="og:locale" content="en_IN" />
 
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@GetInfoApp" />
-    <meta name="twitter:image" content="https://getinfoapp.github.io/website/placeholder.svg" />
+    <meta name="twitter:title" content="Get Info — Ask Anything, Get Answered by People Nearby" />
+    <meta
+      name="twitter:description"
+      content="Pin a location, ask any question, and get a real answer from someone there right now."
+    />
+    <meta name="twitter:image" content="https://getinfosearch.xyz/og-image.png" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://getinfosearch.xyz/#organization",
+            "name": "Get Info",
+            "url": "https://getinfosearch.xyz/",
+            "logo": "https://getinfosearch.xyz/og-image.png",
+            "description": "Hyperlocal Q&A platform connecting people who have questions with people nearby who have answers.",
+            "areaServed": {
+              "@type": "Country",
+              "name": "India"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://getinfosearch.xyz/#website",
+            "url": "https://getinfosearch.xyz/",
+            "name": "Get Info",
+            "publisher": { "@id": "https://getinfosearch.xyz/#organization" },
+            "inLanguage": ["en", "hi"]
+          }
+        ]
+      }
+    </script>
   </head>
 
-  
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-
