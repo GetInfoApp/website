@@ -13,7 +13,7 @@ const steps = [
   {
     icon: Users,
     title: "Experts nearby get notified",
-    desc: "Our system finds people with relevant local knowledge within seconds.",
+    desc: "Our system finds knowledgeable people near you and notifies them within seconds.",
   },
   {
     icon: Star,
@@ -158,15 +158,15 @@ const Index = () => (
           <div className="animate-slide-up flex-1 min-w-0 text-center md:text-left">
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-medium mb-6">
               <MapPin className="w-4 h-4" />
-              Hyperlocal knowledge platform
+              Real people. Real answers. Near you.
             </div>
             <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-              Your neighbourhood knows.{" "}
-              <span className="text-gradient">Ask it.</span>
+              Ask anything.{" "}
+              <span className="text-gradient">Get answered.</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto md:mx-0">
-              Ask your neighbourhood. Get answers from people who are actually
-              there — in Hindi, Hinglish, or English.
+              Post any question. Get matched with knowledgeable people near you
+              who can actually help — in Hindi, Hinglish, or English.
             </p>
             <div
               id="waitlist"
@@ -420,9 +420,10 @@ const Index = () => (
             Starting in India's tier-2 cities
           </h2>
           <p className="text-muted-foreground leading-relaxed text-lg">
-            We're building Get Info from the ground up — for questions like
-            "which auto near here goes to Hazratganj after 10 PM?" that no app
-            can answer. Join the founding community shaping how it works.
+            We're building Get Info from the ground up in India — connecting
+            people who have questions with people nearby who have answers. Any
+            question, any topic, real people. Join the founding community
+            shaping how it works.
           </p>
         </div>
       </div>
