@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useId } from 'react';
 
 interface LogoProps {
   className?: string;
@@ -6,47 +6,41 @@ interface LogoProps {
 }
 
 const Logo: React.FC<LogoProps> = ({ className = "", size = 32 }) => {
+  const uid = useId();
+  const gradId = `logo-grad-${uid}`;
+
   return (
-    <div className={`relative flex items-center justify-center ${className}`} style={{ width: size, height: size }}>
+    <div
+      className={`relative flex items-center justify-center ${className}`}
+      style={{ width: size, height: size }}
+    >
       <svg
-        viewBox="0 0 100 100"
+        viewBox="0 0 100 120"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="w-full h-full"
       >
         <defs>
-          <linearGradient id="logo-gradient" x1="22%" y1="22%" x2="78%" y2="78%">
-            <stop offset="0%" stopColor="#6366F1" />
-            <stop offset="100%" stopColor="#10B981" />
+          <linearGradient id={gradId} x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="hsl(168, 65%, 32%)" />
+            <stop offset="100%" stopColor="hsl(22, 90%, 55%)" />
           </linearGradient>
         </defs>
 
-        {/* Background Circle */}
-        <circle cx="50" cy="50" r="48" fill="#0F172A" />
-        
-        {/* Outer Glow (Subtle) */}
-        <circle cx="50" cy="50" r="45" stroke="#6366F1" strokeOpacity="0.2" strokeWidth="1" />
-
-        {/* Stylized G / Frame */}
+        {/* Map-pin body — teal→orange gradient, transparent background */}
         <path
-          d="M78 50C78 34.54 65.46 22 50 22C34.54 22 22 34.54 22 50C22 65.46 34.54 78 50 78H78V50H55"
-          stroke="url(#logo-gradient)"
-          strokeWidth="6"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+          d="M50 110 C46 98 16 72 16 44 A34 34 0 1 1 84 44 C84 72 54 98 50 110 Z"
+          fill={`url(#${gradId})`}
         />
 
-        {/* Pulse Line */}
-        <path
-          d="M30 55H42L46 42L54 68L58 55H70"
-          stroke="white"
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        
-        {/* Info Dot (i) */}
-        <circle cx="50" cy="34" r="3.5" fill="#10B981" />
+        {/* White inner circle */}
+        <circle cx="50" cy="44" r="21" fill="white" fillOpacity="0.95" />
+
+        {/* Info "i" — dot */}
+        <circle cx="50" cy="36" r="3.5" fill="hsl(168, 65%, 32%)" />
+
+        {/* Info "i" — stem */}
+        <rect x="46.5" y="42" width="7" height="14" rx="3.5" fill="hsl(168, 65%, 32%)" />
       </svg>
     </div>
   );

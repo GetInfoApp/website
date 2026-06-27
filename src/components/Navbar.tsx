@@ -13,6 +13,15 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
 
+  const scrollToWaitlist = () => {
+    const el = document.getElementById("waitlist");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.location.href = "/#waitlist";
+    }
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-border/50">
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
@@ -36,16 +45,14 @@ const Navbar = () => {
               {l.label}
             </Link>
           ))}
+          <Button
+            size="sm"
+            className="ml-2 gradient-hero text-primary-foreground border-0"
+            onClick={scrollToWaitlist}
+          >
+            Get Early Access
+          </Button>
         </div>
-
-        {/* <div className="hidden md:flex items-center gap-3">
-          <Link to="/login">
-            <Button variant="ghost" size="sm">Log In</Button>
-          </Link>
-          <Link to="/ask">
-            <Button size="sm" className="gradient-hero text-primary-foreground border-0">Ask a Question</Button>
-          </Link>
-        </div> */}
 
         {/* Mobile toggle */}
         <button className="md:hidden text-foreground" onClick={() => setOpen(!open)}>

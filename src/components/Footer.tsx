@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { MapPin, Github } from "lucide-react";
 import Logo from "@/components/Logo";
 
 const Footer = () => (
@@ -13,9 +14,24 @@ const Footer = () => (
             <Logo size={28} />
             Get Info
           </Link>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-muted-foreground mb-2">
             Community-powered local knowledge — in Hindi, Hinglish, or English.
           </p>
+          <p className="flex items-center gap-1.5 text-sm text-muted-foreground mb-3">
+            <MapPin className="w-3 h-3 text-primary flex-shrink-0" />
+            Building in India
+          </p>
+          <div className="flex items-center gap-3">
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              <Github className="w-4 h-4" />
+            </a>
+          </div>
         </div>
         <div>
           <h4 className="font-display font-semibold text-sm mb-3">Platform</h4>
