@@ -13,8 +13,8 @@ const steps = [
   },
   {
     icon: Users,
-    title: "Experts nearby get notified",
-    desc: "Our system finds knowledgeable people near you and notifies them within seconds.",
+    title: "People near that location get notified",
+    desc: "Our system finds people near the pinned location and notifies them within seconds.",
   },
   {
     icon: Star,
