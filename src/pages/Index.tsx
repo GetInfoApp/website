@@ -111,7 +111,7 @@ const Index = () => (
             <span className="text-gradient">Google can't find</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Ask your neighbourhood. Get answers from people who actually live
+            Ask your neighbourhood. Get answers from people who are actually
             there — in Hindi, Hinglish, or English.
           </p>
           <div className="flex flex-col items-center gap-4">
